@@ -1,14 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package es.cristiangg.buscaminas;
 
-/**
- *
- * @author Usuario
- */
-public class minas {
+import javafx.scene.Group;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+
+public class minas extends Group {
+        
+    static final double MINAS = 10;
     
+    public minas() {
+        Circle circleExterior = new Circle();
+        circleExterior.setRadius(MINAS / 2);
+        circleExterior.setFill(Color.WHITE);
+        circleExterior.setCenterX(0);
+        circleExterior.setCenterY(0);
+        circleExterior.setStroke(Color.DARKGRAY);
+        
+    }
 }
