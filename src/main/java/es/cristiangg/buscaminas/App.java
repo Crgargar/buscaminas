@@ -1,9 +1,9 @@
 package es.cristiangg.buscaminas;
 
-import java.util.Random;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
@@ -12,28 +12,30 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
+    BorderPane paneRoot;
+
     @Override
     public void start(Stage stage) {
         
         short tamXPantalla = 640;
         short tamYPantalla = 480;
         
-        Pane paneRoot = new Pane();
+        paneRoot = new BorderPane();
         var scene = new Scene(paneRoot, tamXPantalla, tamYPantalla);
         stage.setScene(scene);
         stage.show();
+     
+//        
+        buscaminas bombas = new buscaminas();
+        bombas.mostrarTableroConsola();
+        bombas.minas();
         
-        buscaminas buscamina = new buscaminas();
-               
-        Random random = new Random();
-        for(int i=0; i<20; i++) {
-            int col = random.nextInt(7);
-            if(buscamina.colocarmina(col)) {
-                buscamina.cambiarTurnoJugador();
-            }
-                buscamina.mostrarTableroConsola();
-
-        }
-
     }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
 }
+
+
