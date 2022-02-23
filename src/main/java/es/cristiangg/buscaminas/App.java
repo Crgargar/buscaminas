@@ -24,12 +24,11 @@ public class App extends Application {
         var scene = new Scene(paneRoot, tamXPantalla, tamYPantalla);
         stage.setScene(scene);
         stage.show();
-     
-//        
+    
+        
         buscaminas bombas = new buscaminas();
         bombas.mostrarTableroConsola();
-        bombas.minas();
-        
+//        bombas.minas();        
     }
 
     public static void main(String[] args) {
