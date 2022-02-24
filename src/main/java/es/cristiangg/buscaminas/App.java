@@ -26,9 +26,11 @@ public class App extends Application {
         stage.show();
     
         
-        buscaminas bombas = new buscaminas();
-        bombas.mostrarTableroConsola();
-//        bombas.minas();        
+        Buscaminas buscaminas = new Buscaminas();
+        buscaminas.mostrarTableroConsola();        
+        buscaminas.hayMina(3 ,3);
+        System.out.println(" " + buscaminas);
+
     }
 
     public static void main(String[] args) {

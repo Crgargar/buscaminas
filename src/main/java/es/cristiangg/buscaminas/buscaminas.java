@@ -5,7 +5,7 @@ package es.cristiangg.buscaminas;
 import java.util.Random;
 
 
-public class buscaminas {
+public class Buscaminas {
    
     int numeroMinas = 0;
     short tamXTablero;
@@ -13,39 +13,31 @@ public class buscaminas {
     final char punto = '.';
     final char bomba = '&';
     char[][] tablero;
-   
     Random random = new Random();
-    int posX = random.nextInt(10);
-    int posY = random.nextInt(10);
+    char [][] click;
+    char [][] matrizMinas;
+    boolean perdido;
+
 
    
     // Método constructor
-    public buscaminas() {
+    public Buscaminas() {
+        
         tamXTablero = 10;
         tamYTablero = 10;
         tablero = new char[tamXTablero][tamYTablero];
         for (int x = 0; x <tamXTablero; x++) {
             for (int y = 0; y < tamYTablero; y++) {
-                         
                 tablero[x][y] = punto;
-
             }
         }
-//            public void minas (){
-        for (int x=0; x<5; x++) {
-            for (int y=0; y<5; y++) {
+        
+        for (int i=0; i<10; i++) {
                 int posX = random.nextInt(10);
                 int posY = random.nextInt(10);
                 tablero[posX][posY] = bomba;
-                
-            }
         }
-    
-    }
-     
-
-
-       
+    }     
    
     public void mostrarTableroConsola() {
         for(int y=0; y<tamYTablero; y++) {
@@ -57,6 +49,17 @@ public class buscaminas {
         System.out.println();
     }
    
-
+    public void hayMina (int cordX, int cordY){
+        matrizMinas = new char[tamXTablero][tamYTablero];
+        if (matrizMinas [cordX][cordY] == '&'){
+            System.out.println("Has muerto");
+            perdido = true;
+        }else{
+            click = new char[tamXTablero][tamYTablero];
+            click [cordX][cordY] = '.';
+            System.out.print("Sigue jugando"); 
+        }
+        
+    }
          
 }
