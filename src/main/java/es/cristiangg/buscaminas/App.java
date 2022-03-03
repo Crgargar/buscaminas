@@ -30,6 +30,9 @@ public class App extends Application {
         buscaminas.mostrarTableroConsola();        
         buscaminas.hayMina(3 ,3);
         System.out.println(" " + buscaminas);
+        
+        Tablero tablero = new Tablero(buscaminas);
+        paneRoot.setCenter(tablero);               
 
     }
 
