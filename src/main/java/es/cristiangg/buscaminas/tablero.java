@@ -18,10 +18,10 @@ public class Tablero extends GridPane{
         this.buscaminas = buscaminas;
         this.setBackground(new Background(
             new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
-        this.setMinWidth(TAM_FICHA * buscaminas.tamXTablero);
-        this.setMinHeight(TAM_FICHA * (buscaminas.tamYTablero + 1));
-        this.setMaxWidth(TAM_FICHA * buscaminas.tamXTablero);
-        this.setMaxHeight(TAM_FICHA * (buscaminas.tamYTablero + 1));
+        this.setMinWidth((TAM_FICHA+1) * buscaminas.tamXTablero);
+        this.setMinHeight((TAM_FICHA+1) * (buscaminas.tamYTablero + 1));
+        this.setMaxWidth((TAM_FICHA+1) * buscaminas.tamXTablero);
+        this.setMaxHeight((TAM_FICHA+1) * (buscaminas.tamYTablero + 1));
        
         this.setOnMouseClicked((event) -> {
             int filaX = (int)(event.getX() / 40);
@@ -33,24 +33,22 @@ public class Tablero extends GridPane{
         
         for(int x=0; x<10; x++) {
             for(int y=0; y<10; y++) {
-                if (Buscaminas.tablero [x][y] == '&'){
+                if (buscaminas.tablero [x][y] == (char)'.'){
                     Minas ficha = new Minas();
-                    this.add(ficha, x, y);
-            }else{
-            Buscaminas.tablero [x][y] = '.';
-            
-            }
+                    this.add(ficha, x, y);                      
+                }
+                if (buscaminas.tablero [x][y] == (char) '&'){
+                    Bombas bomba = new Bombas();
+                    TapaBombas tapa = new TapaBombas();
+                    this.add(bomba, x, y);
+                    this.add(tapa, x, y);
+                    
+                    
+                }
             }
         }
 
     }
-       
-    public void fichaHueco (){
-        Circle circleExterior = new Circle();
-        circleExterior.setRadius(TAM_FICHA / 2);
-        circleExterior.setFill(Color.BEIGE);
-    }
-    
 
 //    ficha.setLayoutX(0);
 //    ficha.setLayoutY();

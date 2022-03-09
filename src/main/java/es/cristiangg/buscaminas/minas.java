@@ -2,6 +2,7 @@ package es.cristiangg.buscaminas;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class Minas extends Group {
@@ -18,7 +19,8 @@ public class Minas extends Group {
         
         this.getChildren().addAll(bloques);
     }
-        
+    
+   
     public void setPosX(double posX) {
         this.posX = posX;
         this.setLayoutX(this.posX);
