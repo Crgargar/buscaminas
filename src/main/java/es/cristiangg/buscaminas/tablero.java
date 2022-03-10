@@ -7,11 +7,15 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 
 public class Tablero extends GridPane{
     Buscaminas buscaminas;
     static final double TAM_FICHA = 50;
+    char [][] TapaMinas;
+    
+    boolean perdido;
+    char[][] click;
+    char[][] matrizMinas;
 
    
     public Tablero(Buscaminas buscaminas) {
@@ -41,15 +45,20 @@ public class Tablero extends GridPane{
                     Bombas bomba = new Bombas();
                     TapaBombas tapa = new TapaBombas();
                     this.add(bomba, x, y);
-                    this.add(tapa, x, y);
-                    
-                    
+                    this.add(tapa, x, y);                   
                 }
+//                if (buscaminas.tablero [x][y] == (char) '-'){
+//                    pinta tapa = new pinta();
+//                    this.add(tapa, x, y);                   
+//                }
+//                if (buscaminas.tablero [x][y] == '.' ) {
+//                    if (buscaminas.tablero [x][y] == '&') {
+//                    System.out.println("Hay una bomba,has perdido");
+//                    perdido = true;
+//                    }
+//                }
             }
         }
-
     }
 
-//    ficha.setLayoutX(0);
-//    ficha.setLayoutY();
 }

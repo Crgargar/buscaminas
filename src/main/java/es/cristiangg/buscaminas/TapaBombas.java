@@ -11,7 +11,6 @@ public class TapaBombas extends Group{
         tapa.setX(0);
         tapa.setY(0);
         tapa.setStroke(Color.TOMATO);
-
         
         this.getChildren().addAll(tapa);
     }

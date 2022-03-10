@@ -31,6 +31,10 @@ public class App extends Application {
         buscaminas.hayMina(3 ,3);
         System.out.println(" " + buscaminas);
         
+        TapasTablero tapastablero = new TapasTablero();
+        tapastablero.mostrarTapasConsola();
+        tapastablero.BombasTapas(0, 0);
+        
         Tablero tablero = new Tablero(buscaminas);
         paneRoot.setCenter(tablero);               
 

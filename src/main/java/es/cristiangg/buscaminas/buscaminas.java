@@ -16,6 +16,7 @@ public class Buscaminas {
     Random random = new Random();
     char [][] click;
     char [][] matrizMinas;
+    char [][] tapasBombas;
     boolean perdido;
 
 
@@ -59,7 +60,6 @@ public class Buscaminas {
             click [cordX][cordY] = '.';
             System.out.print("Sigue jugando"); 
         }
-        
     }
-         
+                
 }
