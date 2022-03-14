@@ -7,8 +7,8 @@ public class TapasTablero {
     short tamYTapas;
     final char liso = '-';
     char[][] tableroTapa;
-    char[][] tapasBombas;
-
+    char[][] tapaslevantadas;
+    final char bomba = '*';
 
     public TapasTablero() {
 
@@ -26,18 +26,18 @@ public class TapasTablero {
     public void mostrarTapasConsola() {
         for(int y=0; y<tamYTapas; y++) {
             for(int x=0; x<tamXTapas; x++) {
+                
                 System.out.print(tableroTapa[x][y]);
             }
             System.out.println();
         }    
         System.out.println();
+//        levantadas((int) cordX1 ,(int) cordY1);
     }
         
-       public void BombasTapas (int cordX1, int cordY1){
-        tapasBombas = new char[tamXTapas][tamYTapas];
-        if (tapasBombas [cordX1][cordY1] == '-'){
-            System.out.println("Pintado");
-        }
+    public void levantadas (int cordX1, int cordY1){
+        tableroTapa [cordX1][cordY1] =  bomba;
+            System.out.println("levantada");
         
     } 
 }

@@ -1,4 +1,5 @@
 module-info.class
+es\cristiangg\buscaminas\LevantarTapas.class
 es\cristiangg\buscaminas\Buscaminas.class
 es\cristiangg\buscaminas\Bombas.class
 es\cristiangg\buscaminas\Minas.class

@@ -33,7 +33,8 @@ public class App extends Application {
         
         TapasTablero tapastablero = new TapasTablero();
         tapastablero.mostrarTapasConsola();
-        tapastablero.BombasTapas(0, 0);
+        tapastablero.levantadas(5, 5);
+        tapastablero.mostrarTapasConsola();
         
         Tablero tablero = new Tablero(buscaminas);
         paneRoot.setCenter(tablero);               

@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 
 public class Tablero extends GridPane{
     Buscaminas buscaminas;
+    LevantarTapas levantadas;
     static final double TAM_FICHA = 50;
     char [][] TapaMinas;
     
@@ -47,16 +48,7 @@ public class Tablero extends GridPane{
                     this.add(bomba, x, y);
                     this.add(tapa, x, y);                   
                 }
-//                if (buscaminas.tablero [x][y] == (char) '-'){
-//                    pinta tapa = new pinta();
-//                    this.add(tapa, x, y);                   
-//                }
-//                if (buscaminas.tablero [x][y] == '.' ) {
-//                    if (buscaminas.tablero [x][y] == '&') {
-//                    System.out.println("Hay una bomba,has perdido");
-//                    perdido = true;
-//                    }
-//                }
+
             }
         }
     }
