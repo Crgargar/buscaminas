@@ -17,7 +17,8 @@ public class Tablero extends GridPane{
     boolean perdido;
     char[][] click;
     char[][] matrizMinas;
-
+    int filaX;
+    int columnaY;
    
     public Tablero(Buscaminas buscaminas) {
         this.buscaminas = buscaminas;
@@ -29,8 +30,8 @@ public class Tablero extends GridPane{
         this.setMaxHeight((TAM_FICHA+1) * (buscaminas.tamYTablero + 1));
        
         this.setOnMouseClicked((event) -> {
-            int filaX = (int)(event.getX() / 40);
-            int columnaY = (int)(event.getY() / 40);
+            filaX = (int)(event.getX() / 40);
+            columnaY = (int)(event.getY() / 40);
             System.out.println("X " + filaX);
             System.out.println("Y " + columnaY);
         });

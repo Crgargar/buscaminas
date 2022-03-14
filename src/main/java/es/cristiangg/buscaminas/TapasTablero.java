@@ -32,6 +32,7 @@ public class TapasTablero {
             System.out.println();
         }    
         System.out.println();
+
 //        levantadas((int) cordX1 ,(int) cordY1);
     }
         

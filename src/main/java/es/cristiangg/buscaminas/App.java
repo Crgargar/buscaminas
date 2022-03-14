@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     BorderPane paneRoot;
-
+    short X = 0;
+    short Y = 0;
+    
     @Override
     public void start(Stage stage) {
         
@@ -33,12 +35,13 @@ public class App extends Application {
         
         TapasTablero tapastablero = new TapasTablero();
         tapastablero.mostrarTapasConsola();
-        tapastablero.levantadas(5, 5);
-        tapastablero.mostrarTapasConsola();
         
         Tablero tablero = new Tablero(buscaminas);
-        paneRoot.setCenter(tablero);               
-
+        paneRoot.setCenter(tablero);
+        Y = (short) tablero.columnaY;
+        X = (short) tablero.filaX;
+        tapastablero.levantadas((short) tablero.filaX, (short) tablero.columnaY);
+        tapastablero.mostrarTapasConsola();
     }
 
     public static void main(String[] args) {
