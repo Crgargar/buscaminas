@@ -19,7 +19,6 @@ public class Buscaminas {
     char [][] tapasBombas;
     boolean perdido;
 
-
    
     // Método constructor
     public Buscaminas() {
@@ -61,5 +60,6 @@ public class Buscaminas {
             System.out.print("Sigue jugando"); 
         }
     }
+    
                 
 }

@@ -1,4 +1,3 @@
-
 package es.cristiangg.buscaminas;
 
 import javafx.geometry.Insets;
@@ -10,17 +9,21 @@ import javafx.scene.paint.Color;
 
 public class Tablero extends GridPane{
     Buscaminas buscaminas;
-    LevantarTapas levantadas;
     static final double TAM_FICHA = 50;
     char [][] TapaMinas;
-    
+   
     boolean perdido;
     char[][] click;
     char[][] matrizMinas;
     int filaX;
     int columnaY;
-   
-    public Tablero(Buscaminas buscaminas) {
+    char [][] almacentapas;
+    Minas [][] tapastablero = new Minas[10][10]; 
+
+//    char [][] numeros = new char [5][5];
+
+    
+    public Tablero(Buscaminas buscaminas, TapasTablero tapasTablero) {
         this.buscaminas = buscaminas;
         this.setBackground(new Background(
             new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -29,29 +32,47 @@ public class Tablero extends GridPane{
         this.setMaxWidth((TAM_FICHA+1) * buscaminas.tamXTablero);
         this.setMaxHeight((TAM_FICHA+1) * (buscaminas.tamYTablero + 1));
        
+       
         this.setOnMouseClicked((event) -> {
             filaX = (int)(event.getX() / 40);
             columnaY = (int)(event.getY() / 40);
             System.out.println("X " + filaX);
             System.out.println("Y " + columnaY);
+            tapasTablero.levantadas((short) filaX,(short) columnaY);
+            tapasTablero.mostrarTapasConsola();
+            
+            // Crear una variable mina guardar la posicion de tapa que se quiere hacer invisible
+            Minas [filaX][columnaY] = ' ';
+            //.setVisible(false);
+            
+//            filaX = 1;
+//            columnaY = 2;
+//            numeros [filaX][columnaY] = '3';
+
         });
+            
        
-        
         for(int x=0; x<10; x++) {
             for(int y=0; y<10; y++) {
                 if (buscaminas.tablero [x][y] == (char)'.'){
-                    Minas ficha = new Minas();
-                    this.add(ficha, x, y);                      
+                    Minas tapa = new Minas();
+                    this.add(tapa, x, y); 
                 }
                 if (buscaminas.tablero [x][y] == (char) '&'){
                     Bombas bomba = new Bombas();
-                    TapaBombas tapa = new TapaBombas();
+                    Minas tapa = new Minas();
                     this.add(bomba, x, y);
-                    this.add(tapa, x, y);                   
+                    this.add(tapa, x, y);
+                    tapastablero [x][y] = tapa;
+
+                    //quieres guardar la tapa en tapastablero en los [][] de x y y
+//                    tapastablero [x][y] = tapa;  
+                    
                 }
 
             }
         }
     }
+   
 
 }

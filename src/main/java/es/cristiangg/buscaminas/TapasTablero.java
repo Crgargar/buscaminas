@@ -1,20 +1,19 @@
-
 package es.cristiangg.buscaminas;
 
 public class TapasTablero {
-    
+   
     short tamXTapas;
     short tamYTapas;
     final char liso = '-';
     char[][] tableroTapa;
     char[][] tapaslevantadas;
-    final char bomba = '*';
+    final char bomba1 = '*';
 
     public TapasTablero() {
 
     tamXTapas = 10;
     tamYTapas = 10;
-    
+   
         tableroTapa = new char[tamXTapas][tamYTapas];
         for (int x = 0; x <tamXTapas; x++) {
             for (int y = 0; y < tamYTapas; y++) {
@@ -26,7 +25,7 @@ public class TapasTablero {
     public void mostrarTapasConsola() {
         for(int y=0; y<tamYTapas; y++) {
             for(int x=0; x<tamXTapas; x++) {
-                
+               
                 System.out.print(tableroTapa[x][y]);
             }
             System.out.println();
@@ -35,10 +34,12 @@ public class TapasTablero {
 
 //        levantadas((int) cordX1 ,(int) cordY1);
     }
-        
-    public void levantadas (int cordX1, int cordY1){
-        tableroTapa [cordX1][cordY1] =  bomba;
+
+       
+    public void levantadas (short cordX1, short cordY1){
+       
+        tableroTapa [cordX1][cordY1] =  bomba1;
             System.out.println("levantada");
-        
-    } 
+       
+    }
 }

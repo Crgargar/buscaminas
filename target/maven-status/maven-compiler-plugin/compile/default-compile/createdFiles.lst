@@ -1,9 +1,7 @@
 module-info.class
-es\cristiangg\buscaminas\LevantarTapas.class
 es\cristiangg\buscaminas\Buscaminas.class
 es\cristiangg\buscaminas\Bombas.class
 es\cristiangg\buscaminas\Minas.class
 es\cristiangg\buscaminas\TapasTablero.class
 es\cristiangg\buscaminas\App.class
 es\cristiangg\buscaminas\Tablero.class
-es\cristiangg\buscaminas\TapaBombas.class
