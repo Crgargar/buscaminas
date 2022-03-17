@@ -5,7 +5,7 @@ package es.cristiangg.buscaminas;
 import java.util.Random;
 
 
-public class Buscaminas {
+public class GenerarMinas {
    
     int numeroMinas = 0;
     short tamXTablero;
@@ -21,7 +21,7 @@ public class Buscaminas {
 
    
     // Método constructor
-    public Buscaminas() {
+    public GenerarMinas() {
         
         tamXTablero = 10;
         tamYTablero = 10;

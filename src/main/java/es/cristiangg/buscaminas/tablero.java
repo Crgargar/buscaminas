@@ -8,7 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 public class Tablero extends GridPane{
-    Buscaminas buscaminas;
+    GenerarMinas buscaminas;
     static final double TAM_FICHA = 50;
     char [][] TapaMinas;
    
@@ -17,13 +17,17 @@ public class Tablero extends GridPane{
     char[][] matrizMinas;
     int filaX;
     int columnaY;
-    char [][] almacentapas;
-    Minas [][] tapastablero = new Minas[10][10]; 
-
+//    char [][] almacentapas;
+    
+    Tapas [][] tapastablero = new Tapas[10][10];
+//    char [][] tapas;
+    //    Minas tapa = new Minas ();
+//    int tapa = 1;
+    
 //    char [][] numeros = new char [5][5];
 
     
-    public Tablero(Buscaminas buscaminas, TapasTablero tapasTablero) {
+    public Tablero(GenerarMinas buscaminas, TapasTablero tapasTablero) {
         this.buscaminas = buscaminas;
         this.setBackground(new Background(
             new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -33,37 +37,34 @@ public class Tablero extends GridPane{
         this.setMaxHeight((TAM_FICHA+1) * (buscaminas.tamYTablero + 1));
        
        
-        this.setOnMouseClicked((event) -> {
-            filaX = (int)(event.getX() / 40);
-            columnaY = (int)(event.getY() / 40);
-            System.out.println("X " + filaX);
-            System.out.println("Y " + columnaY);
-            tapasTablero.levantadas((short) filaX,(short) columnaY);
-            tapasTablero.mostrarTapasConsola();
+//        this.setOnMouseClicked((event) -> {
+//            filaX = (int)(event.getX() / 40);
+//            columnaY = (int)(event.getY() / 40);
+//            System.out.println("X " + filaX);
+//            System.out.println("Y " + columnaY);
+//            tapasTablero.levantadas((short) filaX,(short) columnaY);
+//            tapasTablero.mostrarTapasConsola();
+//            tapastablero [filaX][columnaY].setVisible(false);
             
-            // Crear una variable mina guardar la posicion de tapa que se quiere hacer invisible
-            Minas [filaX][columnaY] = ' ';
-            //.setVisible(false);
+//        });        
             
-//            filaX = 1;
-//            columnaY = 2;
-//            numeros [filaX][columnaY] = '3';
 
-        });
-            
-       
         for(int x=0; x<10; x++) {
             for(int y=0; y<10; y++) {
                 if (buscaminas.tablero [x][y] == (char)'.'){
-                    Minas tapa = new Minas();
+                    Tapas tapa = new Tapas();
                     this.add(tapa, x, y); 
+                    tapastablero [x][y] = tapa;
+
                 }
                 if (buscaminas.tablero [x][y] == (char) '&'){
                     Bombas bomba = new Bombas();
-                    Minas tapa = new Minas();
+                    Tapas tapa = new Tapas();
                     this.add(bomba, x, y);
                     this.add(tapa, x, y);
                     tapastablero [x][y] = tapa;
+
+//        tapastablero [filaX][columnaY].setVisible(false);
 
                     //quieres guardar la tapa en tapastablero en los [][] de x y y
 //                    tapastablero [x][y] = tapa;  
@@ -72,6 +73,18 @@ public class Tablero extends GridPane{
 
             }
         }
+        
+        this.setOnMouseClicked((event) -> {
+            filaX = (int)(event.getX() / 50);
+            columnaY = (int)(event.getY() / 50);
+            System.out.println("X " + filaX);
+            System.out.println("Y " + columnaY);
+            tapasTablero.levantadas((short) filaX,(short) columnaY);
+            tapasTablero.mostrarTapasConsola();
+            tapastablero [filaX][columnaY].setVisible(false);
+
+        });
+
     }
    
 

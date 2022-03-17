@@ -29,7 +29,7 @@ public class App extends Application {
         stage.show();
    
        
-        Buscaminas buscaminas = new Buscaminas();
+        GenerarMinas buscaminas = new GenerarMinas();
         buscaminas.mostrarTableroConsola();        
         buscaminas.hayMina(3 ,3);
         System.out.println(" " + buscaminas);
